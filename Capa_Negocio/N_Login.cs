@@ -19,11 +19,11 @@ namespace Capa_Negocio
         public DataTable n_Login(L_Login obj)
         {
             SqlConnection cn = Conexion.ObtenerConexion();
-            SqlCommand cmd = new SqlCommand("sp_Login", cn);
+            SqlCommand cmd = new SqlCommand("sp_login", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@logueo", obj.logueo);
             cmd.Parameters.AddWithValue("@contrasena", obj.contrasena);
-            cmd.Parameters.AddWithValue("@idRol", obj.idLRoles);
+            //cmd.Parameters.AddWithValue("@idRoles", obj.idLRoles);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dtable1 = new DataTable();
             da.Fill(dtable1);

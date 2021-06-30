@@ -31,29 +31,23 @@ namespace Ventas
             }
             else
             {
-                if(cbo_Rol.SelectedItem != null)
+                string Rol = ((L_Login)cbo_Rol.SelectedItem).rol;
+                if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show(cbo_Rol.SelectedItem.ToString());
-                    //cbo_Rol.SelectedItem.ToString();
-                    if (dt.Rows.Count > 0)
+                    objl.logueo = dt.Rows[0][0].ToString();
+                    objl.contrasena = dt.Rows[0][1].ToString();
+                
+                    if (Rol == dt.Rows[0][2].ToString())
                     {
-                        
-                        objl.logueo = dt.Rows[0][1].ToString();
-                        objl.contrasena = dt.Rows[0][2].ToString();
-                        objl.idLRoles = int.Parse(dt.Rows[0][3].ToString());
                         this.Hide();
                         frm_Principal pri = new frm_Principal();
                         pri.Show();
-                        pri.lbl_NombreLogin.Text = "Bienvenido "  + objl.logueo;
+                        pri.lbl_NombreLogin.Text = "Bienvenido " + objl.logueo + " / " + Rol;
                     }
                     else
                     {
                         MessageBox.Show("Usuario Incorrecto");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione un Rol");
                 }
             }
         }
