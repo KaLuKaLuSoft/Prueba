@@ -46,8 +46,12 @@ namespace Ventas
                     }
                     else
                     {
-                        MessageBox.Show("Usuario Incorrecto");
+                        MessageBox.Show("Elija su rol");
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña incorrecto");
                 }
             }
         }
