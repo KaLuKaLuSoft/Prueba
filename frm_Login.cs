@@ -19,6 +19,7 @@ namespace Ventas
             cbo_Rol.DisplayMember = "rol";
             cbo_Rol.ValueMember = "id";
         }
+        int veces = 0;
         private void btn_Ingresar_Click(object sender, System.EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -47,13 +48,30 @@ namespace Ventas
                     else
                     {
                         MessageBox.Show("Elija su rol");
+                        veces += 1;
                     }
                 }
                 else
                 {
+                    //al intenter incorrectamente va sumante la variables veces
                     MessageBox.Show("Usuario o Contraseña incorrecto");
+                    veces += 1;
+                }
+                //si veces es igual a 3 bloqueo el boton de ingresar
+                if (veces == 3)
+                {
+                    MessageBox.Show("Usuario Bloqueado / Vuelva a intentar en 10 segundos");
+                    veces = 0;
+                    btn_Ingresar.Enabled = false; ;
+                    timer_bloqueo.Start();
+                    //MessageBox.Show("Usuario o Contraseña incorrecto");
                 }
             }
+        }
+        private void timer_bloqueo_Tick(object sender, System.EventArgs e)
+        {
+            btn_Ingresar.Enabled = true;
+            timer_bloqueo.Stop();
         }
     }
 }
