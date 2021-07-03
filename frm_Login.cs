@@ -68,7 +68,7 @@ namespace Ventas
                 }
             }
         }
-        private void timer_bloqueo_Tick(object sender, System.EventArgs e)
+        private void timer_bloqueo_Tick_1(object sender, System.EventArgs e)
         {
             btn_Ingresar.Enabled = true;
             timer_bloqueo.Stop();

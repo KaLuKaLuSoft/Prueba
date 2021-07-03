@@ -29,6 +29,7 @@ namespace Ventas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txt_Usuario = new System.Windows.Forms.TextBox();
             this.txt_Pass = new System.Windows.Forms.TextBox();
             this.cbo_Rol = new System.Windows.Forms.ComboBox();
@@ -37,6 +38,7 @@ namespace Ventas
             this.lbl_Usuario = new System.Windows.Forms.Label();
             this.lbl_Pass = new System.Windows.Forms.Label();
             this.lbl_Rol = new System.Windows.Forms.Label();
+            this.timer_bloqueo = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txt_Usuario
@@ -107,6 +109,11 @@ namespace Ventas
             this.lbl_Rol.TabIndex = 7;
             this.lbl_Rol.Text = "Tipo :";
             // 
+            // timer_bloqueo
+            // 
+            this.timer_bloqueo.Interval = 10000;
+            this.timer_bloqueo.Tick += new System.EventHandler(this.timer_bloqueo_Tick_1);
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -138,6 +145,7 @@ namespace Ventas
         private System.Windows.Forms.Label lbl_Usuario;
         private System.Windows.Forms.Label lbl_Pass;
         private System.Windows.Forms.Label lbl_Rol;
+        private System.Windows.Forms.Timer timer_bloqueo;
     }
 }
 
