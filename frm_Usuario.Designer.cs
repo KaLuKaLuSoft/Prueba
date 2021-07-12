@@ -64,9 +64,9 @@ namespace Ventas
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.lbl_Comentarios.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -272,7 +272,7 @@ namespace Ventas
             // 
             this.btn_Actualizar.Location = new System.Drawing.Point(445, 289);
             this.btn_Actualizar.Name = "btn_Actualizar";
-            this.btn_Actualizar.Size = new System.Drawing.Size(129, 51);
+            this.btn_Actualizar.Size = new System.Drawing.Size(139, 52);
             this.btn_Actualizar.TabIndex = 29;
             this.btn_Actualizar.Text = "Actualizar";
             this.btn_Actualizar.UseVisualStyleBackColor = true;
@@ -415,6 +415,22 @@ namespace Ventas
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Buscar";
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(221, 13);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(781, 37);
+            this.textBox8.TabIndex = 33;
+            // 
+            // cb_ListarUsuario
+            // 
+            this.cb_ListarUsuario.FormattingEnabled = true;
+            this.cb_ListarUsuario.Location = new System.Drawing.Point(26, 13);
+            this.cb_ListarUsuario.Name = "cb_ListarUsuario";
+            this.cb_ListarUsuario.Size = new System.Drawing.Size(162, 37);
+            this.cb_ListarUsuario.TabIndex = 32;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -428,22 +444,6 @@ namespace Ventas
             this.dataGridView1.Size = new System.Drawing.Size(1042, 300);
             this.dataGridView1.TabIndex = 31;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cb_ListarUsuario
-            // 
-            this.cb_ListarUsuario.FormattingEnabled = true;
-            this.cb_ListarUsuario.Location = new System.Drawing.Point(26, 13);
-            this.cb_ListarUsuario.Name = "cb_ListarUsuario";
-            this.cb_ListarUsuario.Size = new System.Drawing.Size(162, 37);
-            this.cb_ListarUsuario.TabIndex = 32;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(221, 13);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(781, 37);
-            this.textBox8.TabIndex = 33;
             // 
             // frm_Usuario
             // 

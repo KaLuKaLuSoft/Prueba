@@ -44,11 +44,23 @@ namespace Ventas
             objL.comentario = txt_Comentario.Text;
             objA.ActualizarUsuario(objL);
             MessageBox.Show("Actualizado Correctamente");
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                txt_Nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+                //CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                //txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
+                //txtPrecio.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                //idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("debe seleccionar una fila");
+            }
         }
     }
 }
