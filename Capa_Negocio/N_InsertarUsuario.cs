@@ -12,19 +12,18 @@ namespace Capa_Negocio
 {
     public class N_InsertarUsuario
     {
-        Conexion objd = new Conexion();
-        public void InsertarUsuarios(L_Usuario obj)
+        public void InsertarUsuarios(L_Usuario objl)
         {
             SqlConnection cn = Conexion.ObtenerConexion();
             SqlCommand cmd = new SqlCommand("sp_InsertarUsuario", cn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@nombre", obj.nombre);
-            cmd.Parameters.AddWithValue("@apellidopaterno", obj.apellidopaterno);
-            cmd.Parameters.AddWithValue("@apellidomaterno", obj.apellidomaterno);
-            cmd.Parameters.AddWithValue("@correo", obj.correo);
-            cmd.Parameters.AddWithValue("@telefono", obj.telefono);
-            cmd.Parameters.AddWithValue("@celular", obj.celular);
-            cmd.Parameters.AddWithValue("@comentario", obj.comentario);
+            cmd.Parameters.AddWithValue("@nombre", objl.nombre);
+            cmd.Parameters.AddWithValue("@apellidopaterno", objl.apellidopaterno);
+            cmd.Parameters.AddWithValue("@apellidomaterno", objl.apellidomaterno);
+            cmd.Parameters.AddWithValue("@correo", objl.correo);
+            cmd.Parameters.AddWithValue("@telefono", objl.telefono);
+            cmd.Parameters.AddWithValue("@celular", objl.celular);
+            cmd.Parameters.AddWithValue("@comentario", objl.comentario);
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
             cn.Close();

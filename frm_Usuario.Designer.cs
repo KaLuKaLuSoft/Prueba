@@ -64,9 +64,14 @@ namespace Ventas
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.lbl_Comentarios.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -271,6 +276,7 @@ namespace Ventas
             this.btn_Actualizar.TabIndex = 29;
             this.btn_Actualizar.Text = "Actualizar";
             this.btn_Actualizar.UseVisualStyleBackColor = true;
+            this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
             // 
             // label3
             // 
@@ -337,7 +343,7 @@ namespace Ventas
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(471, 36);
+            this.textBox1.Location = new System.Drawing.Point(473, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(193, 34);
             this.textBox1.TabIndex = 16;
@@ -359,7 +365,7 @@ namespace Ventas
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(471, 108);
+            this.textBox4.Location = new System.Drawing.Point(473, 108);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(193, 34);
             this.textBox4.TabIndex = 19;
@@ -391,20 +397,53 @@ namespace Ventas
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 54);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1036, 359);
+            this.tabPage3.Size = new System.Drawing.Size(1045, 362);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar";
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.textBox8);
+            this.tabPage4.Controls.Add(this.cb_ListarUsuario);
+            this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 54);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1036, 359);
+            this.tabPage4.Size = new System.Drawing.Size(1045, 362);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Buscar";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 66);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1042, 300);
+            this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // cb_ListarUsuario
+            // 
+            this.cb_ListarUsuario.FormattingEnabled = true;
+            this.cb_ListarUsuario.Location = new System.Drawing.Point(26, 13);
+            this.cb_ListarUsuario.Name = "cb_ListarUsuario";
+            this.cb_ListarUsuario.Size = new System.Drawing.Size(162, 37);
+            this.cb_ListarUsuario.TabIndex = 32;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(221, 13);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(781, 37);
+            this.textBox8.TabIndex = 33;
             // 
             // frm_Usuario
             // 
@@ -419,6 +458,9 @@ namespace Ventas
             this.lbl_Comentarios.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,5 +502,8 @@ namespace Ventas
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ComboBox cb_ListarUsuario;
     }
 }
