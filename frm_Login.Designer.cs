@@ -43,24 +43,29 @@ namespace Ventas
             // 
             // txt_Usuario
             // 
+            this.txt_Usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Usuario.Location = new System.Drawing.Point(118, 25);
+            this.txt_Usuario.Multiline = true;
             this.txt_Usuario.Name = "txt_Usuario";
-            this.txt_Usuario.Size = new System.Drawing.Size(166, 22);
+            this.txt_Usuario.Size = new System.Drawing.Size(166, 34);
             this.txt_Usuario.TabIndex = 0;
             // 
             // txt_Pass
             // 
+            this.txt_Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Pass.Location = new System.Drawing.Point(118, 66);
+            this.txt_Pass.Multiline = true;
             this.txt_Pass.Name = "txt_Pass";
-            this.txt_Pass.Size = new System.Drawing.Size(166, 22);
+            this.txt_Pass.Size = new System.Drawing.Size(166, 34);
             this.txt_Pass.TabIndex = 1;
             // 
             // cbo_Rol
             // 
+            this.cbo_Rol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_Rol.FormattingEnabled = true;
             this.cbo_Rol.Location = new System.Drawing.Point(118, 111);
             this.cbo_Rol.Name = "cbo_Rol";
-            this.cbo_Rol.Size = new System.Drawing.Size(166, 24);
+            this.cbo_Rol.Size = new System.Drawing.Size(166, 28);
             this.cbo_Rol.TabIndex = 2;
             // 
             // btn_Ingresar
@@ -72,6 +77,7 @@ namespace Ventas
             this.btn_Ingresar.Text = "Ingresar";
             this.btn_Ingresar.UseVisualStyleBackColor = true;
             this.btn_Ingresar.Click += new System.EventHandler(this.btn_Ingresar_Click);
+            this.btn_Ingresar.Enter += new System.EventHandler(this.btn_Ingresar_Enter);
             // 
             // btn_Cancelar
             // 
@@ -119,14 +125,14 @@ namespace Ventas
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 222);
+            this.Controls.Add(this.cbo_Rol);
+            this.Controls.Add(this.txt_Pass);
+            this.Controls.Add(this.txt_Usuario);
             this.Controls.Add(this.lbl_Rol);
             this.Controls.Add(this.lbl_Pass);
             this.Controls.Add(this.lbl_Usuario);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Ingresar);
-            this.Controls.Add(this.cbo_Rol);
-            this.Controls.Add(this.txt_Pass);
-            this.Controls.Add(this.txt_Usuario);
             this.Name = "frm_Login";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frm_Login_Load);

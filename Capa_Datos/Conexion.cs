@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using Capa_Logica;
+using System.Data;
 
 namespace Capa_Datos
 {
@@ -17,5 +19,6 @@ namespace Capa_Datos
             return cn;
 
         }
+        
     }
 }

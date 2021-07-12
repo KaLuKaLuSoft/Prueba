@@ -12,10 +12,6 @@ namespace Capa_Negocio
 {
     public class N_Login
     {
-        //public DataTable logueo(L_Login obje)
-        //{
-        //    return n_Login(obje);
-        //}
         public DataTable n_Login(L_Login obj)
         {
             SqlConnection cn = Conexion.ObtenerConexion();

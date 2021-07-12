@@ -73,5 +73,10 @@ namespace Ventas
             btn_Ingresar.Enabled = true;
             timer_bloqueo.Stop();
         }
+
+        private void btn_Ingresar_Enter(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
