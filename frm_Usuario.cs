@@ -18,7 +18,8 @@ namespace Ventas
         {
             InitializeComponent();
         }
-        N_InsertarUsuario objN = new N_InsertarUsuario();
+        N_InsertarUsuario objI = new N_InsertarUsuario();
+        N_ActualizarUsuario objA = new N_ActualizarUsuario();
         L_Usuario objL = new L_Usuario();
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
@@ -29,8 +30,25 @@ namespace Ventas
             objL.telefono = Convert.ToInt32(txt_Telefono.Text);
             objL.celular = Convert.ToInt32(txt_Celular.Text);
             objL.comentario = txt_Comentario.Text;
-            objN.InsertarUsuarios(objL);
+            objI.InsertarUsuarios(objL);
             MessageBox.Show("Ingresado Correctamente");
+        }
+        private void btn_Actualizar_Click(object sender, EventArgs e)
+        {
+            objL.nombre = txt_Nombre.Text;
+            objL.apellidopaterno = txt_ApellidoPaterno.Text;
+            objL.apellidomaterno = txt_ApellidoMaterno.Text;
+            objL.correo = txt_Correo.Text;
+            objL.telefono = Convert.ToInt32(txt_Telefono.Text);
+            objL.celular = Convert.ToInt32(txt_Celular.Text);
+            objL.comentario = txt_Comentario.Text;
+            objA.ActualizarUsuario(objL);
+            MessageBox.Show("Actualizado Correctamente");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
