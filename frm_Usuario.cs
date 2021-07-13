@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Negocio;
+using Capa_Datos;
 using Capa_Logica;
+using System.Data.SqlClient;
 
 namespace Ventas
 {
@@ -20,6 +22,8 @@ namespace Ventas
         }
         N_InsertarUsuario objI = new N_InsertarUsuario();
         N_ActualizarUsuario objA = new N_ActualizarUsuario();
+        Conexion cn = new Conexion();
+        
         L_Usuario objL = new L_Usuario();
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
@@ -46,21 +50,39 @@ namespace Ventas
             MessageBox.Show("Actualizado Correctamente");
             
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                txt_Nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-                //CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                //txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
-                //txtPrecio.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                //idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
-            }
-            else
-            {
-                MessageBox.Show("debe seleccionar una fila");
-            }
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //{
+            //    txt_Nombre.Text = dataGridView1.CurrentRow.Cells["Nombre Completo"].Value.ToString();
+            //    //CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //    //txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
+            //    //txtPrecio.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //    //idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Debe seleccionar una fila");
+            //}
+        }
+        private void ListarUsuarios()
+        {
+            N_ListarUsuario listar = new N_ListarUsuario();
+            dataGridView1.DataSource = listar.ListarProductos();
+        }
+        private void frm_Usuario_Load(object sender, EventArgs e)
+        {
+            ListarUsuarios();
+        }
+        private void txt_filtrar_TextChanged(object sender, EventArgs e)
+        {
+            //if(cb_ListarUsuario.Text == "Nombre")
+            //{
+            //    SqlDataAdapter sda = new SqlDataAdapter("select nombre + ' ' + apellidopaterno + ' ' + apellidomaterno AS [Nombre] from tb_usuario WHERE Nombre LIKE '" + txt_filtrar.Text + "%'", cn.ToString());
+            //    DataTable data = new DataTable();
+            //    sda.Fill(data);
+            //    dataGridView1.DataSource = data;
+            //}
         }
     }
 }

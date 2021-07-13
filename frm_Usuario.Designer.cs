@@ -63,13 +63,29 @@ namespace Ventas
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txt_filtrar = new System.Windows.Forms.TextBox();
             this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.lbl_Comentarios.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -394,6 +410,21 @@ namespace Ventas
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.btn_Eliminar);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.textBox8);
+            this.tabPage3.Controls.Add(this.textBox9);
+            this.tabPage3.Controls.Add(this.textBox10);
+            this.tabPage3.Controls.Add(this.textBox11);
+            this.tabPage3.Controls.Add(this.textBox12);
+            this.tabPage3.Controls.Add(this.textBox13);
+            this.tabPage3.Controls.Add(this.textBox14);
             this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 54);
             this.tabPage3.Name = "tabPage3";
@@ -401,10 +432,139 @@ namespace Ventas
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Eliminar";
             // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Location = new System.Drawing.Point(447, 290);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(129, 51);
+            this.btn_Eliminar.TabIndex = 29;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 177);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(156, 29);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Comentarios:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(700, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 29);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Correo:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(346, 114);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 29);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Celular:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 114);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 29);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Telefono:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(680, 40);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(140, 29);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Apellido M.:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(332, 40);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(136, 29);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Apellido P.:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 40);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 29);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "Nombre:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(473, 37);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(193, 34);
+            this.textBox8.TabIndex = 16;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(133, 35);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(193, 34);
+            this.textBox9.TabIndex = 15;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(174, 177);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(835, 98);
+            this.textBox10.TabIndex = 22;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(473, 109);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(193, 34);
+            this.textBox11.TabIndex = 19;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(133, 110);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(193, 34);
+            this.textBox12.TabIndex = 18;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(827, 108);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(193, 34);
+            this.textBox13.TabIndex = 20;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(827, 40);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(193, 34);
+            this.textBox14.TabIndex = 17;
+            // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.White;
-            this.tabPage4.Controls.Add(this.textBox8);
+            this.tabPage4.Controls.Add(this.txt_filtrar);
             this.tabPage4.Controls.Add(this.cb_ListarUsuario);
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -415,17 +575,22 @@ namespace Ventas
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Buscar";
             // 
-            // textBox8
+            // txt_filtrar
             // 
-            this.textBox8.Location = new System.Drawing.Point(221, 13);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(781, 37);
-            this.textBox8.TabIndex = 33;
+            this.txt_filtrar.Location = new System.Drawing.Point(221, 13);
+            this.txt_filtrar.Multiline = true;
+            this.txt_filtrar.Name = "txt_filtrar";
+            this.txt_filtrar.Size = new System.Drawing.Size(781, 37);
+            this.txt_filtrar.TabIndex = 33;
+            this.txt_filtrar.TextChanged += new System.EventHandler(this.txt_filtrar_TextChanged);
             // 
             // cb_ListarUsuario
             // 
             this.cb_ListarUsuario.FormattingEnabled = true;
+            this.cb_ListarUsuario.Items.AddRange(new object[] {
+            "Nombre",
+            "Teléfono",
+            "Celular"});
             this.cb_ListarUsuario.Location = new System.Drawing.Point(26, 13);
             this.cb_ListarUsuario.Name = "cb_ListarUsuario";
             this.cb_ListarUsuario.Size = new System.Drawing.Size(162, 37);
@@ -433,12 +598,18 @@ namespace Ventas
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 66);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1042, 300);
@@ -453,11 +624,14 @@ namespace Ventas
             this.Controls.Add(this.tabControl1);
             this.Name = "frm_Usuario";
             this.Text = "frm_Usuario";
+            this.Load += new System.EventHandler(this.frm_Usuario_Load);
             this.tabControl1.ResumeLayout(false);
             this.lbl_Comentarios.ResumeLayout(false);
             this.lbl_Comentarios.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -503,7 +677,22 @@ namespace Ventas
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txt_filtrar;
         private System.Windows.Forms.ComboBox cb_ListarUsuario;
+        private System.Windows.Forms.Button btn_Eliminar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox14;
     }
 }
