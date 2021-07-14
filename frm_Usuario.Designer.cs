@@ -82,6 +82,11 @@ namespace Ventas
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.spListarUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dB_PruebaDataSet = new Ventas.DB_PruebaDataSet();
+            this.txt_filtrar = new System.Windows.Forms.TextBox();
+            this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
+            this.sp_ListarUsuarioTableAdapter = new Ventas.DB_PruebaDataSetTableAdapters.sp_ListarUsuarioTableAdapter();
             this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoPaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,11 +95,6 @@ namespace Ventas
             this.celularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comentariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spListarUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dB_PruebaDataSet = new Ventas.DB_PruebaDataSet();
-            this.txt_filtrar = new System.Windows.Forms.TextBox();
-            this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
-            this.sp_ListarUsuarioTableAdapter = new Ventas.DB_PruebaDataSetTableAdapters.sp_ListarUsuarioTableAdapter();
             this.tabControl1.SuspendLayout();
             this.lbl_Comentarios.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -304,7 +304,8 @@ namespace Ventas
             // 
             this.textBox15.Location = new System.Drawing.Point(703, 298);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(14, 34);
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(43, 34);
             this.textBox15.TabIndex = 30;
             // 
             // btn_Actualizar
@@ -628,10 +629,46 @@ namespace Ventas
             this.dataGridView1.TabIndex = 34;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick_1);
             // 
+            // spListarUsuarioBindingSource
+            // 
+            this.spListarUsuarioBindingSource.DataMember = "sp_ListarUsuario";
+            this.spListarUsuarioBindingSource.DataSource = this.dB_PruebaDataSet;
+            // 
+            // dB_PruebaDataSet
+            // 
+            this.dB_PruebaDataSet.DataSetName = "DB_PruebaDataSet";
+            this.dB_PruebaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txt_filtrar
+            // 
+            this.txt_filtrar.Location = new System.Drawing.Point(221, 13);
+            this.txt_filtrar.Multiline = true;
+            this.txt_filtrar.Name = "txt_filtrar";
+            this.txt_filtrar.Size = new System.Drawing.Size(810, 37);
+            this.txt_filtrar.TabIndex = 33;
+            this.txt_filtrar.TextChanged += new System.EventHandler(this.txt_filtrar_TextChanged);
+            // 
+            // cb_ListarUsuario
+            // 
+            this.cb_ListarUsuario.FormattingEnabled = true;
+            this.cb_ListarUsuario.Items.AddRange(new object[] {
+            "Nombre Completo",
+            "Teléfono",
+            "Celular"});
+            this.cb_ListarUsuario.Location = new System.Drawing.Point(26, 13);
+            this.cb_ListarUsuario.Name = "cb_ListarUsuario";
+            this.cb_ListarUsuario.Size = new System.Drawing.Size(162, 37);
+            this.cb_ListarUsuario.TabIndex = 32;
+            this.cb_ListarUsuario.Text = "Seleccione";
+            // 
+            // sp_ListarUsuarioTableAdapter
+            // 
+            this.sp_ListarUsuarioTableAdapter.ClearBeforeFill = true;
+            // 
             // nombreCompletoDataGridViewTextBoxColumn
             // 
             this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "Nombre Completo";
+            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "Nombre_Completo";
             this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Nombre Completo";
             this.nombreCompletoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
@@ -708,41 +745,6 @@ namespace Ventas
             this.comentariosDataGridViewTextBoxColumn.Name = "comentariosDataGridViewTextBoxColumn";
             this.comentariosDataGridViewTextBoxColumn.ReadOnly = true;
             this.comentariosDataGridViewTextBoxColumn.Width = 179;
-            // 
-            // spListarUsuarioBindingSource
-            // 
-            this.spListarUsuarioBindingSource.DataMember = "sp_ListarUsuario";
-            this.spListarUsuarioBindingSource.DataSource = this.dB_PruebaDataSet;
-            // 
-            // dB_PruebaDataSet
-            // 
-            this.dB_PruebaDataSet.DataSetName = "DB_PruebaDataSet";
-            this.dB_PruebaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txt_filtrar
-            // 
-            this.txt_filtrar.Location = new System.Drawing.Point(221, 13);
-            this.txt_filtrar.Multiline = true;
-            this.txt_filtrar.Name = "txt_filtrar";
-            this.txt_filtrar.Size = new System.Drawing.Size(810, 37);
-            this.txt_filtrar.TabIndex = 33;
-            this.txt_filtrar.TextChanged += new System.EventHandler(this.txt_filtrar_TextChanged);
-            // 
-            // cb_ListarUsuario
-            // 
-            this.cb_ListarUsuario.FormattingEnabled = true;
-            this.cb_ListarUsuario.Items.AddRange(new object[] {
-            "Nombre",
-            "Teléfono",
-            "Celular"});
-            this.cb_ListarUsuario.Location = new System.Drawing.Point(26, 13);
-            this.cb_ListarUsuario.Name = "cb_ListarUsuario";
-            this.cb_ListarUsuario.Size = new System.Drawing.Size(162, 37);
-            this.cb_ListarUsuario.TabIndex = 32;
-            // 
-            // sp_ListarUsuarioTableAdapter
-            // 
-            this.sp_ListarUsuarioTableAdapter.ClearBeforeFill = true;
             // 
             // frm_Usuario
             // 
@@ -827,6 +829,7 @@ namespace Ventas
         private System.Windows.Forms.BindingSource spListarUsuarioBindingSource;
         private DB_PruebaDataSetTableAdapters.sp_ListarUsuarioTableAdapter sp_ListarUsuarioTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompletoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoPaternoDataGridViewTextBoxColumn;
@@ -835,6 +838,5 @@ namespace Ventas
         private System.Windows.Forms.DataGridViewTextBoxColumn celularDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comentariosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox textBox15;
     }
 }

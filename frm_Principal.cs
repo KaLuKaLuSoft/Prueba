@@ -16,12 +16,14 @@ namespace Ventas
         {
             InitializeComponent();
         }
-
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_Usuario abrir = new frm_Usuario();
+            //Llamando a la Instancia
+            abrir = frm_Usuario.Instancia();
             abrir.MdiParent = this;
             abrir.Show();
         }
+
     }
 }
