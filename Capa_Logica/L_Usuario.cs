@@ -15,6 +15,6 @@ namespace Capa_Logica
         public string correo { get; set; }
         public int telefono { get; set; }
         public int celular { get; set; }
-        public string comentario { get; set; }
+        public string comentarios { get; set; }
     }
 }

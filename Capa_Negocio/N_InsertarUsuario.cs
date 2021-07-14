@@ -23,7 +23,7 @@ namespace Capa_Negocio
             cmd.Parameters.AddWithValue("@correo", objl.correo);
             cmd.Parameters.AddWithValue("@telefono", objl.telefono);
             cmd.Parameters.AddWithValue("@celular", objl.celular);
-            cmd.Parameters.AddWithValue("@comentario", objl.comentario);
+            cmd.Parameters.AddWithValue("@comentarios", objl.comentarios);
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
             cn.Close();
