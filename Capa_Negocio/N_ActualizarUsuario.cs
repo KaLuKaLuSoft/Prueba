@@ -35,7 +35,6 @@ namespace Capa_Negocio
                 cn.Close();
                 return false;
             }
-
         }
     }
 }

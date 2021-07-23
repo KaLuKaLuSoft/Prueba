@@ -47,15 +47,22 @@ namespace Ventas
         #region Actualizar
         private void btn_Actualizar_Click(object sender, EventArgs e)
         {
+            Actualizar();
+        }
+        void Actualizar()
+        {
             objL.id = id;
-            if (objA.ActualizarUsuario(objL) == true)
-            {
-                MessageBox.Show("Actualizado Correctamente");
-                VaciarTextBoxes();
-                //btn_Guardar.Text = "Ingresar";
-            }
-            else
-                MessageBox.Show("Se produjo un error: No actualizado");
+            objL.nombre = textBox2.Text;
+            objL.apellidopaterno = textBox1.Text;
+            objL.apellidomaterno = textBox7.Text;
+            objL.correo = textBox6.Text;
+            objL.telefono = Convert.ToInt32(textBox5.Text);
+            objL.celular = Convert.ToInt32(textBox4.Text);
+            objL.comentarios = textBox3.Text;
+            objA.ActualizarUsuario(objL);
+            MessageBox.Show("Actualizado Correctamente");
+            VaciarTextBoxes();
+            ListarUsuarios();
         }
         private void VaciarTextBoxes()
         {
@@ -74,9 +81,10 @@ namespace Ventas
             N_ListarUsuario listar = new N_ListarUsuario();
             tabla = listar.ListarUsuarios();
             dataGridView1.DataSource = tabla;
-            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
         }
         #endregion
         #region Filtrar Datos
@@ -107,23 +115,17 @@ namespace Ventas
         #region DataGridView
         private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            //tabControl1.SelectedTab = tabPage2;
-            //textBox2.Text = tabla.Rows[e.RowIndex].Field<string>(1);
-            //textBox1.Text = tabla.Rows[e.RowIndex].Field<string>(2);
-            //textBox7.Text = tabla.Rows[e.RowIndex].Field<string>(3);
-            //textBox5.Text = tabla.Rows[e.RowIndex].Field<int>(4).ToString();
-            //textBox4.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
-            //textBox6.Text = tabla.Rows[e.RowIndex].Field<string>(6);
-            //textBox3.Text = tabla.Rows[e.RowIndex].Field<string>(7);
-            //textBox15.Text = tabla.Rows[e.RowIndex].Field<int>(8).ToString();
-            txt_Nombre.Text = tabla.Rows[e.RowIndex].Field<string>(1);
-            txt_ApellidoPaterno.Text = tabla.Rows[e.RowIndex].Field<string>(2);
-            txt_ApellidoMaterno.Text = tabla.Rows[e.RowIndex].Field<string>(3);
-            txt_Telefono.Text = tabla.Rows[e.RowIndex].Field<int>(4).ToString();
-            txt_Celular.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
-            txt_Correo.Text = tabla.Rows[e.RowIndex].Field<string>(6);
-            txt_comentario.Text = tabla.Rows[e.RowIndex].Field<string>(7);
+            tabControl1.SelectedTab = tabPage2;
+            textBox2.Text = tabla.Rows[e.RowIndex].Field<string>(2);
+            textBox1.Text = tabla.Rows[e.RowIndex].Field<string>(3);
+            textBox7.Text = tabla.Rows[e.RowIndex].Field<string>(4);
+            textBox5.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
+            textBox4.Text = tabla.Rows[e.RowIndex].Field<int>(6).ToString();
+            textBox6.Text = tabla.Rows[e.RowIndex].Field<string>(7);
+            textBox3.Text = tabla.Rows[e.RowIndex].Field<string>(8);
+            //textBox15.Text = tabla.Rows[e.RowIndex].Field<int>(0).ToString();
             id = tabla.Rows[e.RowIndex].Field<int>(0);
+            ListarUsuarios();
         } 
         #endregion
         #region Bloquear frm_Usuario

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="N_ActualizarUsuario.cs" />
+    <Compile Include="N_EliminarUsuario.cs" />
     <Compile Include="N_InsertarUsuario.cs" />
     <Compile Include="N_ListarUsuario.cs" />
     <Compile Include="N_Login.cs" />
