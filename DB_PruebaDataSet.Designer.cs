@@ -1015,7 +1015,7 @@ namespace Ventas.DB_PruebaDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_ListarUsuario";
-            tableMapping.ColumnMappings.Add("Nombre Completo", "Nombre Completo");
+            tableMapping.ColumnMappings.Add("Nombre_Completo", "Nombre Completo");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("Apellido Paterno", "Apellido Paterno");
             tableMapping.ColumnMappings.Add("Apellido Materno", "Apellido Materno");

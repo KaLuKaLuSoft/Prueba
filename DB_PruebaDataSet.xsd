@@ -21,7 +21,7 @@
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Nombre Completo" DataSetColumn="Nombre Completo" />
+              <Mapping SourceColumn="Nombre_Completo" DataSetColumn="Nombre Completo" />
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
               <Mapping SourceColumn="Apellido Paterno" DataSetColumn="Apellido Paterno" />
               <Mapping SourceColumn="Apellido Materno" DataSetColumn="Apellido Materno" />
@@ -41,7 +41,7 @@
   <xs:element name="DB_PruebaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DB_PruebaDataSet" msprop:Generator_UserDSName="DB_PruebaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_ListarUsuario" msprop:Generator_TableClassName="sp_ListarUsuarioDataTable" msprop:Generator_TableVarName="tablesp_ListarUsuario" msprop:Generator_RowChangedName="sp_ListarUsuarioRowChanged" msprop:Generator_TablePropName="sp_ListarUsuario" msprop:Generator_RowDeletingName="sp_ListarUsuarioRowDeleting" msprop:Generator_RowChangingName="sp_ListarUsuarioRowChanging" msprop:Generator_RowEvHandlerName="sp_ListarUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_ListarUsuarioRowDeleted" msprop:Generator_RowClassName="sp_ListarUsuarioRow" msprop:Generator_UserTableName="sp_ListarUsuario" msprop:Generator_RowEvArgName="sp_ListarUsuarioRowChangeEvent">
+        <xs:element name="sp_ListarUsuario" msprop:Generator_TableClassName="sp_ListarUsuarioDataTable" msprop:Generator_TableVarName="tablesp_ListarUsuario" msprop:Generator_TablePropName="sp_ListarUsuario" msprop:Generator_RowDeletingName="sp_ListarUsuarioRowDeleting" msprop:Generator_RowChangingName="sp_ListarUsuarioRowChanging" msprop:Generator_RowEvHandlerName="sp_ListarUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_ListarUsuarioRowDeleted" msprop:Generator_UserTableName="sp_ListarUsuario" msprop:Generator_RowChangedName="sp_ListarUsuarioRowChanged" msprop:Generator_RowEvArgName="sp_ListarUsuarioRowChangeEvent" msprop:Generator_RowClassName="sp_ListarUsuarioRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Nombre_x0020_Completo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombre_Completo" msprop:Generator_ColumnPropNameInRow="Nombre_Completo" msprop:Generator_ColumnPropNameInTable="Nombre_CompletoColumn" msprop:Generator_UserColumnName="Nombre Completo" minOccurs="0">

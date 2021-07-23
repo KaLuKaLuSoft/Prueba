@@ -13,6 +13,7 @@ namespace Capa_Negocio
 {
     public class N_ListarUsuario
     {
+        #region Listar Usuarios
         public DataTable ListarUsuarios()
         {
             SqlConnection cn = Conexion.ObtenerConexion();
@@ -27,16 +28,19 @@ namespace Capa_Negocio
                 LeerFilas.Close();
                 return Tabla;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
             finally
             {
                 cn.Close();
-            }
+            } 
+            
         }
-        public void filtrar(DataGridView data,string nombre)
+        #endregion
+        #region Filtrar Datos Usuarios
+        public void FiltrarNombre(DataGridView data, string nombre)
         {
             SqlConnection cn = Conexion.ObtenerConexion();
             try
@@ -51,7 +55,7 @@ namespace Capa_Negocio
                 data.DataSource = Tabla;
                 cn.Close();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -60,5 +64,58 @@ namespace Capa_Negocio
                 cn.Close();
             }
         }
+        #endregion
+        #region Filtrar por Teléfono
+        public void filtrarTelefono(DataGridView data, string telefono)
+        {
+            SqlConnection cn = Conexion.ObtenerConexion();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_filtrarTelefono", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@filtro", SqlDbType.VarChar, 200).Value = telefono;
+                cmd.ExecuteNonQuery();
+                DataTable Tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(Tabla);
+                data.DataSource = Tabla;
+                cn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        #endregion
+        #region Filtrar por Celular
+        public void filtrarCelular(DataGridView data, string celular)
+        {
+            SqlConnection cn = Conexion.ObtenerConexion();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_filtrarCelular", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@filtro", SqlDbType.VarChar, 200).Value = celular;
+                cmd.ExecuteNonQuery();
+                DataTable Tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(Tabla);
+                data.DataSource = Tabla;
+                cn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        } 
+        #endregion
     }
 }

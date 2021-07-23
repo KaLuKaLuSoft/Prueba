@@ -13,6 +13,7 @@ namespace Ventas
         {
             InitializeComponent();
         }
+        private int id;
         private DataTable tabla;
         N_InsertarUsuario objI = new N_InsertarUsuario();
         N_ActualizarUsuario objA = new N_ActualizarUsuario();
@@ -46,16 +47,26 @@ namespace Ventas
         #region Actualizar
         private void btn_Actualizar_Click(object sender, EventArgs e)
         {
-            objL.id = Convert.ToInt32(textBox15.Text);
-            objL.apellidopaterno = textBox1.Text;
-            objL.apellidomaterno = textBox7.Text;
-            objL.correo = textBox6.Text;
-            objL.telefono = Convert.ToInt32(textBox5.Text);
-            objL.celular = Convert.ToInt32(textBox4.Text);
-            objL.comentarios = textBox3.Text;
-            objA.ActualizarUsuario(objL);
-            MessageBox.Show("Actualizado Correctamente");
-        } 
+            objL.id = id;
+            if (objA.ActualizarUsuario(objL) == true)
+            {
+                MessageBox.Show("Actualizado Correctamente");
+                VaciarTextBoxes();
+                //btn_Guardar.Text = "Ingresar";
+            }
+            else
+                MessageBox.Show("Se produjo un error: No actualizado");
+        }
+        private void VaciarTextBoxes()
+        {
+            textBox2.Text = "";
+            textBox1.Text = "";
+            textBox7.Text = "";
+            textBox5.Text = "";
+            textBox4.Text = "";
+            textBox6.Text = "";
+            textBox3.Text = "";
+        }
         #endregion
         #region Listar Usuarios
         private void ListarUsuarios()
@@ -74,22 +85,45 @@ namespace Ventas
             if(cb_ListarUsuario.Text == "Nombre Completo")
             {
                 var aux = new N_ListarUsuario();
-                aux.filtrar(dataGridView1, txt_filtrar.Text.Trim());
+                aux.FiltrarNombre(dataGridView1, txt_filtrar.Text.Trim());
+            }
+            else if(cb_ListarUsuario.Text == "Teléfono")
+            {
+                var aux = new N_ListarUsuario();
+                aux.filtrarTelefono(dataGridView1, txt_filtrar.Text.Trim());
+            }
+            else if(cb_ListarUsuario.Text == "Celular")
+            {
+                var aux = new N_ListarUsuario();
+                aux.filtrarCelular(dataGridView1, txt_filtrar.Text.Trim());
+            }
+            else if(cb_ListarUsuario.Text == "Correo")
+            {
+                var aux = new N_ListarUsuario();
+                //aux.filtrarCelular(dataGridView1, txt_filtrar.Text.Trim());
             }
         } 
         #endregion
         #region DataGridView
         private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            tabControl1.SelectedTab = tabPage2;
-            textBox2.Text = tabla.Rows[e.RowIndex].Field<string>(1);
-            textBox1.Text = tabla.Rows[e.RowIndex].Field<string>(2);
-            textBox7.Text = tabla.Rows[e.RowIndex].Field<string>(3);
-            textBox5.Text = tabla.Rows[e.RowIndex].Field<int>(4).ToString();
-            textBox4.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
-            textBox6.Text = tabla.Rows[e.RowIndex].Field<string>(6);
-            textBox3.Text = tabla.Rows[e.RowIndex].Field<string>(7);
-            textBox15.Text = tabla.Rows[e.RowIndex].Field<int>(8).ToString();
+            //tabControl1.SelectedTab = tabPage2;
+            //textBox2.Text = tabla.Rows[e.RowIndex].Field<string>(1);
+            //textBox1.Text = tabla.Rows[e.RowIndex].Field<string>(2);
+            //textBox7.Text = tabla.Rows[e.RowIndex].Field<string>(3);
+            //textBox5.Text = tabla.Rows[e.RowIndex].Field<int>(4).ToString();
+            //textBox4.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
+            //textBox6.Text = tabla.Rows[e.RowIndex].Field<string>(6);
+            //textBox3.Text = tabla.Rows[e.RowIndex].Field<string>(7);
+            //textBox15.Text = tabla.Rows[e.RowIndex].Field<int>(8).ToString();
+            txt_Nombre.Text = tabla.Rows[e.RowIndex].Field<string>(1);
+            txt_ApellidoPaterno.Text = tabla.Rows[e.RowIndex].Field<string>(2);
+            txt_ApellidoMaterno.Text = tabla.Rows[e.RowIndex].Field<string>(3);
+            txt_Telefono.Text = tabla.Rows[e.RowIndex].Field<int>(4).ToString();
+            txt_Celular.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
+            txt_Correo.Text = tabla.Rows[e.RowIndex].Field<string>(6);
+            txt_comentario.Text = tabla.Rows[e.RowIndex].Field<string>(7);
+            id = tabla.Rows[e.RowIndex].Field<int>(0);
         } 
         #endregion
         #region Bloquear frm_Usuario

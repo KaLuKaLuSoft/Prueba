@@ -87,7 +87,7 @@ namespace Ventas
             this.txt_filtrar = new System.Windows.Forms.TextBox();
             this.cb_ListarUsuario = new System.Windows.Forms.ComboBox();
             this.sp_ListarUsuarioTableAdapter = new Ventas.DB_PruebaDataSetTableAdapters.sp_ListarUsuarioTableAdapter();
-            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_CompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoPaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoMaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -610,7 +610,7 @@ namespace Ventas
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreCompletoDataGridViewTextBoxColumn,
+            this.Nombre_CompletoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoPaternoDataGridViewTextBoxColumn,
             this.apellidoMaternoDataGridViewTextBoxColumn,
@@ -665,16 +665,14 @@ namespace Ventas
             // 
             this.sp_ListarUsuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // nombreCompletoDataGridViewTextBoxColumn
+            // Nombre_CompletoDataGridViewTextBoxColumn
             // 
-            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "Nombre_Completo";
-            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Nombre Completo";
-            this.nombreCompletoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
-            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreCompletoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nombreCompletoDataGridViewTextBoxColumn.Width = 219;
+            this.Nombre_CompletoDataGridViewTextBoxColumn.DataPropertyName = "Nombre_Completo";
+            this.Nombre_CompletoDataGridViewTextBoxColumn.HeaderText = "Nombre Completo";
+            this.Nombre_CompletoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.Nombre_CompletoDataGridViewTextBoxColumn.Name = "Nombre_CompletoDataGridViewTextBoxColumn";
+            this.Nombre_CompletoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Nombre_CompletoDataGridViewTextBoxColumn.Width = 125;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -831,6 +829,7 @@ namespace Ventas
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompletoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_CompletoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoPaternoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoMaternoDataGridViewTextBoxColumn;
