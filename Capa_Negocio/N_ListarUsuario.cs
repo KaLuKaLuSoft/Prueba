@@ -115,6 +115,32 @@ namespace Capa_Negocio
             {
                 cn.Close();
             }
+        }
+        #endregion
+        #region Listar por Correo
+        public void filtrarCorreo(DataGridView data, string celular)
+        {
+            SqlConnection cn = Conexion.ObtenerConexion();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_filtrarCorreo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@filtro", SqlDbType.VarChar, 200).Value = celular;
+                cmd.ExecuteNonQuery();
+                DataTable Tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(Tabla);
+                data.DataSource = Tabla;
+                cn.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
         } 
         #endregion
     }

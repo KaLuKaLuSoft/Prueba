@@ -12,7 +12,7 @@ namespace Capa_Negocio
 {
     public class N_InsertarUsuario
     {
-        public void InsertarUsuarios(L_Usuario objl)
+        public bool InsertarUsuarios(L_Usuario objl)
         {
             SqlConnection cn = Conexion.ObtenerConexion();
             SqlCommand cmd = new SqlCommand("sp_InsertarUsuario", cn);
@@ -24,9 +24,16 @@ namespace Capa_Negocio
             cmd.Parameters.AddWithValue("@telefono", objl.telefono);
             cmd.Parameters.AddWithValue("@celular", objl.celular);
             cmd.Parameters.AddWithValue("@comentarios", objl.comentarios);
-            cmd.ExecuteNonQuery();
-            cmd.Parameters.Clear();
-            cn.Close();
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                cn.Close();
+                return true;
+            }
+            else
+            {
+                cn.Close();
+                return false;
+            }
         }
     }
 }

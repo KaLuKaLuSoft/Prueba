@@ -17,6 +17,7 @@ namespace Ventas
         private DataTable tabla;
         N_InsertarUsuario objI = new N_InsertarUsuario();
         N_ActualizarUsuario objA = new N_ActualizarUsuario();
+        N_EliminarUsuario objE = new N_EliminarUsuario();
         Conexion cn = new Conexion();
         L_Usuario objL = new L_Usuario();
         private void frm_Usuario_Load(object sender, EventArgs e)
@@ -25,54 +26,89 @@ namespace Ventas
             sp_ListarUsuarioTableAdapter.Fill(dB_PruebaDataSet.sp_ListarUsuario);
             ListarUsuarios();
         }
-        #region Guardar o Insertar
-        private void btn_Guardar_Click(object sender, EventArgs e)
+        #region Guardar,Actualizar
+        private void btn_Guardar_Click_1(object sender, EventArgs e)
         {
-            guardar();
-        }
-        
-        void guardar()
-        {
+            objL.id = id;
             objL.nombre = txt_Nombre.Text;
             objL.apellidopaterno = txt_ApellidoPaterno.Text;
             objL.apellidomaterno = txt_ApellidoMaterno.Text;
             objL.correo = txt_Correo.Text;
             objL.telefono = Convert.ToInt32(txt_Telefono.Text);
             objL.celular = Convert.ToInt32(txt_Celular.Text);
-            objL.comentarios = txt_comentario.Text;
-            objI.InsertarUsuarios(objL);
-            MessageBox.Show("Ingresado Correctamente");
+            objL.comentarios = txt_Comentarios.Text;
+            if (btn_Guardar.Text == "Ingresar")
+            {
+                if (objI.InsertarUsuarios(objL) == true)
+                {
+                    MessageBox.Show("Guardado Correctamente");
+                    VaciarTextBoxes();
+                    ListarUsuarios();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error: No guardado");
+                    VaciarTextBoxes();
+                    ListarUsuarios();
+                }
+            }
+            else if (btn_Guardar.Text == "Actualizar")
+            {
+                if (objA.ActualizarUsuario(objL) == true)
+                {
+                    MessageBox.Show("Actualizado Correctamente");
+                    VaciarTextBoxes();
+                    ListarUsuarios();
+                    btn_Guardar.Text = "Ingresar";
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error: No actualizado");
+                    VaciarTextBoxes();
+                    ListarUsuarios();
+                    btn_Guardar.Text = "Ingresar";
+                }
+            }     
         }
+        #endregion
+        #region Eliminar
+        private void btn_Eliminar_Click_1(object sender, EventArgs e)
+        {
+            objL.id = id;
+            if (objE.EliminarUsuario(objL) == true)
+            {
+                DialogResult result = MessageBox.Show("Seguro que dese eliminar " + txt_Nombre.Text+ "?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    VaciarTextBoxes();
+                    ListarUsuarios();
+                }
+                else if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No se eliminó");
+                    VaciarTextBoxes();
+                    ListarUsuarios();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error: No eliminado");
+            }
+        } 
         #endregion
         #region Actualizar
         private void btn_Actualizar_Click(object sender, EventArgs e)
         {
-            Actualizar();
-        }
-        void Actualizar()
-        {
-            objL.id = id;
-            objL.nombre = textBox2.Text;
-            objL.apellidopaterno = textBox1.Text;
-            objL.apellidomaterno = textBox7.Text;
-            objL.correo = textBox6.Text;
-            objL.telefono = Convert.ToInt32(textBox5.Text);
-            objL.celular = Convert.ToInt32(textBox4.Text);
-            objL.comentarios = textBox3.Text;
-            objA.ActualizarUsuario(objL);
-            MessageBox.Show("Actualizado Correctamente");
-            VaciarTextBoxes();
-            ListarUsuarios();
         }
         private void VaciarTextBoxes()
         {
-            textBox2.Text = "";
-            textBox1.Text = "";
-            textBox7.Text = "";
-            textBox5.Text = "";
-            textBox4.Text = "";
-            textBox6.Text = "";
-            textBox3.Text = "";
+            txt_ApellidoPaterno.Text = "";
+            txt_Nombre.Text = "";
+            txt_ApellidoMaterno.Text = "";
+            txt_Telefono.Text = "";
+            txt_Celular.Text = "";
+            txt_Correo.Text = "";
+            txt_Comentarios.Text = "";
         }
         #endregion
         #region Listar Usuarios
@@ -108,22 +144,23 @@ namespace Ventas
             else if(cb_ListarUsuario.Text == "Correo")
             {
                 var aux = new N_ListarUsuario();
-                //aux.filtrarCelular(dataGridView1, txt_filtrar.Text.Trim());
+                aux.filtrarCorreo(dataGridView1, txt_filtrar.Text.Trim());
             }
         } 
         #endregion
         #region DataGridView
         private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            tabControl1.SelectedTab = tabPage2;
-            textBox2.Text = tabla.Rows[e.RowIndex].Field<string>(2);
-            textBox1.Text = tabla.Rows[e.RowIndex].Field<string>(3);
-            textBox7.Text = tabla.Rows[e.RowIndex].Field<string>(4);
-            textBox5.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
-            textBox4.Text = tabla.Rows[e.RowIndex].Field<int>(6).ToString();
-            textBox6.Text = tabla.Rows[e.RowIndex].Field<string>(7);
-            textBox3.Text = tabla.Rows[e.RowIndex].Field<string>(8);
-            //textBox15.Text = tabla.Rows[e.RowIndex].Field<int>(0).ToString();
+            tabControl1.SelectedTab = tabPage1;
+            btn_Guardar.Text = "Actualizar";
+            txt_Nombre.Text = tabla.Rows[e.RowIndex].Field<string>(2);
+            txt_ApellidoPaterno.Text = tabla.Rows[e.RowIndex].Field<string>(3);
+            txt_ApellidoMaterno.Text = tabla.Rows[e.RowIndex].Field<string>(4);
+            txt_Telefono.Text = tabla.Rows[e.RowIndex].Field<int>(5).ToString();
+            txt_Celular.Text = tabla.Rows[e.RowIndex].Field<int>(6).ToString();
+            txt_Correo.Text = tabla.Rows[e.RowIndex].Field<string>(7);
+            txt_Comentarios.Text = tabla.Rows[e.RowIndex].Field<string>(8);
+            txt_Id.Text = tabla.Rows[e.RowIndex].Field<int>(0).ToString();
             id = tabla.Rows[e.RowIndex].Field<int>(0);
             ListarUsuarios();
         } 
@@ -139,7 +176,7 @@ namespace Ventas
             }
             frm_Instancia.BringToFront();
             return frm_Instancia;
-        } 
-        #endregion
+        }
+        #endregion    
     }
 }
